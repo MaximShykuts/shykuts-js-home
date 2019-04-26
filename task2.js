@@ -1,52 +1,23 @@
-function isLetters(str) {
-  return (str.match(/[a-zа-я]/ig)) ? str.match(/[a-zа-я]/ig).length : 0;
-}
-var firstName;
-var secondName;
-var lastName;
-var fullYears;
-var gender;
-var fullName = '';
-var ageInDays = 0;
-var futureYears = 0;
-var finalMessage = '';
+do {
+  var fullName = prompt('Please, write your full name. Apart.', '');
+} while (!fullName.match(/[a-z]+ [a-z]+ [a-z]/ig));
+
+do {
+  var ageInYearsS = prompt('Enter your age:', '');
+  var ageInYears = parseInt(ageInYearsS, 0);
+} while (isNaN(ageInYears) || (ageInYears <= 0) || (ageInYears) > 120);
+
+var gender = confirm('Are you a man?', '');
+var ageInDays = ageInYears * 365;
+var inFiveYears = ageInYears + 5;
 var pension = false;
-var correctInput = 5;
 
-do {
-  firstName = prompt('Введите вашe имя:', '');
-} while (!firstName || (firstName.length < 3) || !isLetters(firstName));
-
-do {
-  secondName = prompt('Введите вашe отчество:', '');
-} while (!secondName || (secondName.length < 5) || !isLetters(secondName));
-
-do {
-  lastName = prompt('Введите вашу фамилию:', '');
-} while (!lastName || (lastName.length < 2) || !isLetters(lastName));
-
-do {
-  fullYears = parseInt(prompt('Сколько вам лет:', ''), 10);
-} while ((isNaN(fullYears)) || (fullYears < 1) || (fullYears > 120));
-
-gender = confirm('Ваш пол - мужской?');
-
-if (gender && (fullYears >= 63)) {
+if (gender && (ageInYears >= 63)) {
   pension = true;
-} else if (!gender && (fullYears >= 58)) {
+} else if (!gender && (ageInYears >= 58)) {
   pension = true;
 }
 
-fullName = firstName + ' ' + secondName + ' ' + lastName;
-gender = (gender) ? 'мужской' : 'женский';
-ageInDays = Math.floor(fullYears * 365.2425);
-futureYears = fullYears + 5;
-correctInput = correctInput / 5 * 100;
-pension = (pension) ? 'да' : 'нет';
-finalMessage = 'ваше ФИО: ' + fullName + '\n' +
-  'ваш возраст в годах: ' + fullYears + '\n' +
-  'ваш возраст в днях: ' + ageInDays + '\n' +
-  'через 5 лет вам будет: ' + futureYears + '\n' +
-  'ваш пол: ' + gender + '\n' +
-  'вы на пенсии: ' + pension;
-alert(finalMessage);
+gender = (gender) ? 'male' : 'female';
+
+alert('Your full name: ' + fullName + '\n' + 'Your age in years: ' + ageInYears + '\n' + 'Your age in days: ' + ageInDays + '\n' + 'In 5 years you will be: ' + inFiveYears + '\n' + 'Your gender: ' + gender + '\n' + 'You are retired ' + pension);
