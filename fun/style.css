@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.navigation {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  max-width: 1920px;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  box-shadow: 0 1px #777777;
+  text-align: center ;
+  z-index: 2;
+}
+
+.navigation ul {
+  display: inline-block;
+}
+
+.navigation ul li {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.navigation ul li a {
+  font-family: Serif, sans-serif ;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 40px;
+  color: #414141;
+}
+
+.bckgr-foto{
+  box-sizing: border-box;
+  background-image: url("images/backgr.png");
+  background-attachment:scroll;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:100%;
+  height: 1000px;
+  padding-top: 1px;
+  overflow: hidden;
+}
+
+.bckgr-foto .company-card {
+  font-family: Serif, sans-serif;
+  font-size: 1rem;
+  color: #414141;
+  background-color: rgba(255, 255, 255, 0.6);
+  height: 1000px;
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bckgr-foto .company-card .company-card-content {
+  position: absolute;
+  width: 1000px;
+  top: 50px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+
