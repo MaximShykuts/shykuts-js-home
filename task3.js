@@ -1,23 +1,25 @@
-function isNumeric(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
-}
+'use strict';
 
-var arr = [];
+alert('Hello! Please, write your arguments. Empty string, not a number or Cancel finishes typing.');
+var numbers = [];
+var argument;
+var transformed;
 var sum = 0;
 
 do {
-  var input = prompt('Введите суммируемое значение', '');
-  arr.push(+input);
-} while (isNumeric(input));
+  argument = prompt('Write your argument:', '');
+  if ((argument === '') || (argument === null)) {
+    break;
+  }
+  transformed = parseInt(argument, 0);
+  if (isNaN(transformed) === true) {
+    break;
+  }
+  numbers.push(transformed);
+} while (true);
 
-arr.length = arr.length - 1;
-
-for (var i = 0; i < arr.length; i++) {
-  sum += arr[i];
+for (var i = 0; i < numbers.length; i++) {
+  sum += numbers[i];
 }
 
-if (arr.length === 0) {
-  alert('Вы не ввели ни одного числа.')
-} else {
-  alert('Сумма введённых вами чисел: ' + sum + '\n' + 'Вы ввели следующие числа: ' + arr);
-}
+alert('Arguments list: ' + numbers + '\n' + 'Amount of elements: ' + numbers.length + '\n' + 'Sum: ' + sum);
