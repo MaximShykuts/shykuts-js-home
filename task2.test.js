@@ -1,4 +1,4 @@
-var exercise = require('./exercise-2');
+var exercise = require('./task2.test');
 describe('Palindrome', function () {
   it('Checking the value \'Anna\' on the palindrome', function () {
     expect(exercise('Anna')).toBeTruthy();
