@@ -1,5 +1,4 @@
 'use strict';
-
 var clockSize = 400; // размер часов
 var dotSize = 20; // размер центрального кружка
 var clockNumSize = 40; // размер цифр
