@@ -1,13 +1,27 @@
 'use strict';
-
-function sum(a) {
-  return function (b) {
-    return a + b;
-  };
+function myFunc(n) {
+  return Math.floor(parseInt(n, 0));
 }
-do {
-  var a = parseInt(prompt('Enter a: ', ''), 0);
-  var b = parseInt(prompt('Enter b: ', ''), 0);
-} while (isNaN(a) || isNaN(b));
 
-console.log(sum(a)(b));
+function drawConsole(row, column, symbolOne, symbolTwo) {
+  symbolOne = symbolOne || '#';
+  symbolTwo = symbolTwo || '\\';
+  var userString = '';
+  for (var i = 0; i < column; i++) {
+    for (var j = 0; j < row; j++) {
+      j % 2 === i % 2 ? userString += symbolOne : userString += symbolTwo;
+    }
+    userString += '\n';
+  }
+  console.log(userString);
+}
+
+do {
+  var rowS = prompt('Введите число: ', '8');
+  var columnS = prompt('Введите число: ', '8');
+  var row = myFunc(rowS);
+  var column = myFunc(columnS);
+} while (isNaN(row) || isNaN(column));
+
+drawConsole(row, column, '#', ' ');
+drawConsole(row, column);
