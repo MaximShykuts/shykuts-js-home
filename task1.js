@@ -1,38 +1,27 @@
 'use strict';
-(function () {
-  function Question( question, answers, correctAnswer) {
-    this.question = question;
-    this.answers = answers;
-    this.correctAnswer = correctAnswer;
-  }
+function myFunc(n) {
+  return Math.floor(parseInt(n, 0));
+}
 
-  Question.prototype.showQuestion = function () {
-    console.log(this.question);
-    for (var i = 0; i < this.answers.length; i++) {
-      console.log('\t' + (i + 1) + '. ' + this.answers[i] + '\n');
+function drawConsole(row, column, symbolOne, symbolTwo) {
+  symbolOne = symbolOne || '#';
+  symbolTwo = symbolTwo || '\\';
+  var userString = '';
+  for (var i = 0; i < column; i++) {
+    for (var j = 0; j < row; j++) {
+      j % 2 === i % 2 ? userString += symbolOne : userString += symbolTwo;
     }
-  };
-
-  Question.prototype.checkAnswer = function (answer) {
-    answer == this.correctAnswer ? console.log(true) : console.log(false);
-  };
-
-  var question1 = new Question('In what year Hrodna was founded?', ['1158', '1128', '1023'], '2');
-  var question2 = new Question('How many people live in Hrodna?', ['350 718', '380 560', '345 080', '370 919'], '4');
-  var question3 = new Question('Which telephone code in Hrodna?', ['+375 152', '+375 154', '+375 156'], '1');
-  var question4 = new Question('Which car code in Hrodna?', ['7', '2', '1', '4'], '4');
-
-  var allQuestions = [question1, question2, question3, question4];
-
-  function randomInteger(min, max) {
-    return Math.round(min - 0.5 + Math.random() * (max - min + 1));
+    userString += '\n';
   }
+  console.log(userString);
+}
 
-  var randomQuestion = randomInteger(0, allQuestions.length - 1);
+do {
+  var rowS = prompt('Введите число: ', '8');
+  var columnS = prompt('Введите число: ', '8');
+  var row = myFunc(rowS);
+  var column = myFunc(columnS);
+} while (isNaN(row) || isNaN(column));
 
-  allQuestions[randomQuestion].showQuestion();
-
-  var userAnswer = parseInt(prompt('Please, enter number of correct answer: ', ''), 0);
-
-  allQuestions[randomQuestion].checkAnswer(userAnswer);
-})();
+drawConsole(row, column, '#', ' ');
+drawConsole(row, column);
